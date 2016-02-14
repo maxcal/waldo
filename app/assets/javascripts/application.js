@@ -14,3 +14,14 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+// Triggers events based on the current controller and action.
+// Example:
+// given the controller UsersController and the action index
+// users:loaded
+// users.index:loaded
+$(document).on('page:change', function(){
+  var data = $('body').data();
+  $(this).trigger(data.controller + ":loaded")
+         .trigger(data.controller + "." + data.action + ":loaded");
+});

@@ -1,0 +1,9 @@
+<%= form_for(high_score || Highscore.new) %>
+  <div class="field">
+    <%= f.label :username %>
+    <%= f.text_input :username %>
+  </div>
+  <%= f.hidden_input :score %>
+  <%= f.hidden_input :time %>
+  <%= f.submit %>
+<% end %>
