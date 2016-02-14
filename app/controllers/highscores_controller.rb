@@ -1,20 +1,23 @@
 class HighscoresController < ApplicationController
   respond_to :json, :html
+
   def create
-    @highscore = Highscore.create(high_scores_params)
-    respond_with(@high_score, 201)
+    @highscore = Highscore.create(highscore_params)
+    respond_with @highscore
   end
 
   def index
-    @highscores = Highscore.sort(:score).all
+    @highscores = Highscore.order(score: :desc).all
+    respond_with @highscores
   end
 
   def show
     @highscore = Highscore.find(params[:id])
+    respond_with @highscore
   end
 
   private
-    def high_score_params
+    def highscore_params
       params.require(:highscore).permit(:username, :time, :score)
     end
 end

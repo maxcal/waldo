@@ -25,3 +25,5 @@ $(document).on('page:change', function(){
   $(this).trigger(data.controller + ":loaded")
          .trigger(data.controller + "." + data.action + ":loaded");
 });
+
+window.waldo = {};

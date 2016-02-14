@@ -1,9 +1,9 @@
-<%= form_for(high_score || Highscore.new) %>
+<%= form_for(local_assigns[:highscore] || Highscore.new) do |f| %>
   <div class="field">
     <%= f.label :username %>
-    <%= f.text_input :username %>
+    <%= f.text_field :username %>
   </div>
-  <%= f.hidden_input :score %>
-  <%= f.hidden_input :time %>
+  <%= f.hidden_field :score %>
+  <%= f.hidden_field :time %>
   <%= f.submit %>
 <% end %>
